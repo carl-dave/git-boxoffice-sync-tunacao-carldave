@@ -3,7 +3,11 @@ function isValidQuantity(quantity) {
 }
 
 function calculateTicketPrice(quantity, basePrice, seating) {
-  let price = Math.floor(quantity * basePrice);
+  let price = Math.round(quantity * basePrice);
+
+  if (quantity >= 5) {
+    price = price * 0.90;
+  }
 
   if (seating === "premium") {
     price = price * 1.50;
